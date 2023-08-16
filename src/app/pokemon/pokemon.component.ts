@@ -13,27 +13,8 @@ export class PokemonComponent {
 
   constructor(private pokemonService: PokemonService) { }
 
-  ngOnInit() {
-    this.pokemonService.getPokemonList().subscribe({
-      next: (pokemons) => {
-
-        this.pokemons = pokemons.map(
-          (pokemon) => {
-            this.pokemonService.getPokemonDescription(pokemon.id.toString()).subscribe({
-              next: (description) => {
-                pokemon.description = description;
-              }
-            });
-            return pokemon;
-          }
-        );
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    });
+  async ngOnInit() {
+    this.pokemons = await this.pokemonService.initPokemonList()
   }
 
-  
-    
 }
