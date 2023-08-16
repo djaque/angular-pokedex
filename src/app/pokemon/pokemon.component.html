@@ -1,0 +1,26 @@
+<!--<div class="row">
+<div class="col" *ngFor="let pokemon of pokemons">
+    <h2 class="">{{ pokemon.name }}</h2>
+  <a href="#" class="">
+    <img
+      src="{{ pokemon.image }}"
+      alt="{{ pokemon.name }}"
+      style="width: 270px"
+      class="img-thumbnail"
+  /></a>
+</div>
+</div>
+-->
+
+<div class="row">
+<div class="col-3 p-1" *ngFor="let pokemon of pokemons">
+<div class="card h-100 text-bg-light">
+    <img src="{{ pokemon.image }}" class="card-img-top" alt="{{ pokemon.name }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
+      <p class="card-text">{{ pokemon.description }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+</div>
